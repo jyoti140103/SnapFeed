@@ -1,0 +1,182 @@
+:root {
+  --bg: #eef1f5;
+  --surface: #ffffff;
+  --ink: #1c2530;
+  --muted: #6b7684;
+  --line: #d9dee5;
+  --accent: #3347d1;
+  --accent-dark: #2636a8;
+  --radius: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+}
+
+body {
+  background-color: var(--bg);
+}
+
+#root {
+  min-height: 100%;
+  width: 100%;
+}
+
+/* ---------- Create post page ---------- */
+
+.create-post-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  min-height: 100vh;
+  width: 100%;
+  padding: 24px 16px;
+  background-color: var(--bg);
+}
+
+.create-post-section h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.create-post-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 460px;
+  padding: 28px;
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(28, 37, 48, 0.08);
+}
+
+.create-post-section input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.create-post-section input[type="file"] {
+  width: 100%;
+  padding: 24px 14px;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: var(--bg);
+  border: 2px dashed var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.create-post-section input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.create-post-section input:focus-visible,
+.create-post-section button:focus-visible {
+  outline: 3px solid rgba(51, 71, 209, 0.35);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+.create-post-section button {
+  padding: 12px 20px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.create-post-section button:hover {
+  background-color: var(--accent-dark);
+}
+
+/* ---------- Feed page ---------- */
+
+.feed-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  min-height: 100vh;
+  width: 100%;
+  padding: 32px 16px;
+  background-color: var(--bg);
+}
+
+.post-card {
+  width: 100%;
+  max-width: 520px;
+  padding: 14px;
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 16px rgba(28, 37, 48, 0.06);
+}
+
+.post-card img {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.post-card p {
+  margin-top: 12px;
+  padding: 0 4px 4px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.post-card h3 {
+  margin-bottom: 10px;
+}
+
+/* Empty state: the "No posts available." message */
+.feed-section > p {
+  margin-top: 12vh;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+@media (max-width: 480px) {
+  .create-post-section form {
+    padding: 20px;
+  }
+}
